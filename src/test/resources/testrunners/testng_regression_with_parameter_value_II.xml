@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestNG Regression Suite" verbose="3" thread-count="4"
+	parallel="tests">
+
+	<!-- We can run the test cases from command line also and from TestNG.xml 
+		also. -->
+
+	<listeners>
+		<listener
+			class-name="com.qa.opencart.listeners.ExtentReportListeners" />
+		<listener
+			class-name="com.qa.opencart.listeners.AnnotationTransformer" />	<!-- AnnotationTransformer listener is for retry logic. Re-run the failed TC multiple times. -->
+		<listener
+			class-name="com.qa.opencart.listeners.TestAllureListener" />	
+	</listeners>
+
+
+	<test name="Login Page Test">
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
+
+
+	<!--  <test name="Account Page Test">
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+			<class name="com.qa.opencart.tests.AccountPageTest" />
+		</classes>
+	</test>
+
+	<test name="Product Details Page Test">
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+			<class name="com.qa.opencart.tests.ProductDetailsPageTest" />
+		</classes>
+	</test> --> 
+
+	<!-- <test name="Register Page Test"> <parameter name="browser" value="firefox" 
+		/> <classes> <class name="com.qa.opencart.tests.RegisterPageTest" /> </classes> 
+		</test> -->
+
+</suite>
